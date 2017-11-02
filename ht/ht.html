@@ -27,10 +27,6 @@
                     'ipt2':$(".ipt2").val()
                 },
                 success: function (e) {
-//                    console.log(e);
-                    var str='';
-                    str+='<tr><td>'+e[e.length-1].title+'</td><td>'+e[e.length-1].concent+'</td></tr>';
-                    $('table').append(str);
                 }
             })
         })

@@ -19,12 +19,8 @@ router.post('/ht', function(req, res, next) {
   var ipt1=req.body.ipt1;
   var ipt2=req.body.ipt2;
   res.header('Access-Control-Allow-Origin','*');
-  con.query(`INSERT INTO lyt (title,concent) VALUES ('${ipt1}','${ipt2}')`, function (err, rows) {
-    if(rows!=""||rows!=null){
-      con.query("SELECT * FROM lyt",function(err,rows){
-        res.send(rows)
-      })
-    }
+  con.query('INSERT INTO lyt (title,concent) VALUES ("'+ipt1+'","'+ipt2+'")', function (err, rows) {
+    res.send(rows)
   })
 });
 
