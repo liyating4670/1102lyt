@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href=""/>
+    <title></title>
+    <style></style>
+</head>
+<body>
+<input type="text" class="ipt1"/>
+<input type="text" class="ipt2"/>
+<button class="btn">添加</button>
+<table></table>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+    $(function () {
+        $('.btn').click(function () {
+            $.ajax({
+                url:"http://localhost:3000/ht",
+                type:'POST',
+                data:{
+                    'ipt1':$(".ipt1").val(),
+                    'ipt2':$(".ipt2").val()
+                },
+                success: function (e) {
+//                    console.log(e);
+                    var str='';
+                    str+='<tr><td>'+e[e.length-1].title+'</td><td>'+e[e.length-1].concent+'</td></tr>';
+                    $('table').append(str);
+                }
+            })
+        })
+    })
+</script>
